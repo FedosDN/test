@@ -28,6 +28,11 @@ use Illuminate\Database\Eloquent\Model;
  */
 class City extends Model
 {
+    protected $fillable = [
+        'county_id', 'name', 'zip', 'lat', 'lng', 'zcta', 'parent_zcta', 'population', 'density', 'imprecise',
+        'military', 'timezone', 'created_at', 'updated_at'
+    ];
+
     /**
      * County relation to this City
      *

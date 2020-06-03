@@ -22,6 +22,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class County extends Model
 {
+    protected $fillable = ['state_id', 'fips', 'name', 'weights', 'names_all', 'fips_all', 'created_at', 'updated_at'];
+
     /**
      * State relation to this County
      *

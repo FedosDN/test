@@ -18,6 +18,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class State extends Model
 {
+    protected $fillable = ['abbreviation', 'name', 'created_at', 'updated_at'];
+
     /**
      * Counties relation to this State
      *

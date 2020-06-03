@@ -13,6 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'CityController@index');
+Route::post('/search', 'CityController@search');
+Route::post('/paginate', 'CityController@paginate');
+
+Route::post('/upload', 'FileController@upload');

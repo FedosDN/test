@@ -11,3 +11,4 @@
 
 ## Bootstrap App
 * run `composer run-script bootstrap` to resolve all dependencies
+ > It updates composer packages and runs migrations with seeds
