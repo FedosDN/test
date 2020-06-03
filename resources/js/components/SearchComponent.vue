@@ -1,23 +1,19 @@
 <template>
-    <div class="container" style="margin: 10px auto">
-        <div class="row justify-content-center">
-            <div class="card">
-                <div class="card-header">Search city by zip code or name</div>
+    <div class="card">
+        <div class="card-header">Search city by zip code or name</div>
 
-                <div class="card-body">
-                    <label>
-                        <input class="form-control"
-                               placeholder="Search..."
-                               type="text"
-                               ref="phrase"
-                               v-bind:value="this.phrase"
-                               v-on:input="handleSearchChanged"
-                        >
-                    </label>
-                </div>
-                <div class="card-footer"></div>
-            </div>
+        <div class="card-body">
+            <label>
+                <input class="form-control"
+                       placeholder="Search..."
+                       type="text"
+                       ref="phrase"
+                       v-bind:value="this.phrase"
+                       v-on:input="handleSearchChanged"
+                >
+            </label>
         </div>
+        <div class="card-footer"></div>
     </div>
 </template>
 

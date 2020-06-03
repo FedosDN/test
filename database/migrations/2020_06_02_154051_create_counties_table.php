@@ -49,7 +49,7 @@ class CreateCountiesTable extends Migration
     public function down()
     {
         Schema::table('counties', function (Blueprint $table) {
-            $table->dropForeign('state_id');
+            $table->dropForeign(['state_id']);
         });
 
         Schema::dropIfExists('counties');

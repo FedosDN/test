@@ -1965,6 +1965,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -2006,7 +2011,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         })["catch"](function (error) {
           _this.$notify({
             group: 'notifications',
-            title: 'Error',
+            title: 'Notice',
             type: 'warn',
             text: error.response.data.errors.phrase[0]
           });
@@ -2080,10 +2085,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
 
 var vm = {
   name: "SearchComponent",
@@ -2114,10 +2115,6 @@ var vm = {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
-//
-//
 //
 //
 //
@@ -39055,21 +39052,31 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
+    { staticClass: "container" },
     [
       _c("notifications", {
         attrs: { position: "top center", group: "notifications" }
       }),
       _vm._v(" "),
-      _c("file"),
+      _c(
+        "div",
+        { staticClass: "row" },
+        [
+          _c("file"),
+          _vm._v(" "),
+          _c("search", {
+            attrs: { phrase: _vm.phrase },
+            on: {
+              "update:phrase": function($event) {
+                _vm.phrase = $event
+              }
+            }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
-      _c("search", {
-        attrs: { phrase: _vm.phrase },
-        on: {
-          "update:phrase": function($event) {
-            _vm.phrase = $event
-          }
-        }
-      }),
+      _vm._m(0),
       _vm._v(" "),
       _c(
         "div",
@@ -39079,7 +39086,7 @@ var render = function() {
             _c(
               "tbody",
               [
-                _vm._m(0),
+                _vm._m(1),
                 _vm._v(" "),
                 _vm._l(_vm.cities.data, function(city) {
                   return _c("tr", { key: city.id }, [
@@ -39129,6 +39136,20 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "row", staticStyle: { margin: "10px auto" } },
+      [
+        _c("a", { staticClass: "btn btn-info", attrs: { href: "/docs" } }, [
+          _vm._v("Documentation")
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
     return _c("tr", [
       _c("th", { staticClass: "text-center" }, [_vm._v("ID")]),
       _vm._v(" "),
@@ -39165,33 +39186,25 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container", staticStyle: { margin: "10px auto" } },
-    [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "card" }, [
-          _c("div", { staticClass: "card-header" }, [
-            _vm._v("Search city by zip code or name")
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _c("label", [
-              _c("input", {
-                ref: "phrase",
-                staticClass: "form-control",
-                attrs: { placeholder: "Search...", type: "text" },
-                domProps: { value: this.phrase },
-                on: { input: _vm.handleSearchChanged }
-              })
-            ])
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-footer" })
-        ])
+  return _c("div", { staticClass: "card" }, [
+    _c("div", { staticClass: "card-header" }, [
+      _vm._v("Search city by zip code or name")
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-body" }, [
+      _c("label", [
+        _c("input", {
+          ref: "phrase",
+          staticClass: "form-control",
+          attrs: { placeholder: "Search...", type: "text" },
+          domProps: { value: this.phrase },
+          on: { input: _vm.handleSearchChanged }
+        })
       ])
-    ]
-  )
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "card-footer" })
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -39215,61 +39228,46 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "div",
-    { staticClass: "container", staticStyle: { margin: "10px auto" } },
-    [
-      _c("div", { staticClass: "row justify-content-center" }, [
-        _c("div", { staticClass: "col-md-8" }, [
-          _c("div", { staticClass: "card" }, [
-            _vm._m(0),
+  return _c("div", { staticClass: "col-md-8" }, [
+    _c("div", { staticClass: "card" }, [
+      _vm._m(0),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-body" }, [
+        _vm.success != ""
+          ? _c(
+              "div",
+              { staticClass: "alert alert-success", attrs: { role: "alert" } },
+              [
+                _vm._v(
+                  "\n                " + _vm._s(_vm.success) + "\n            "
+                )
+              ]
+            )
+          : _vm._e(),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            attrs: { enctype: "multipart/form-data" },
+            on: { submit: _vm.formSubmit }
+          },
+          [
+            _c("strong", [_vm._v("File:")]),
             _vm._v(" "),
-            _c("div", { staticClass: "card-body" }, [
-              _vm.success != ""
-                ? _c(
-                    "div",
-                    {
-                      staticClass: "alert alert-success",
-                      attrs: { role: "alert" }
-                    },
-                    [
-                      _vm._v(
-                        "\n                        " +
-                          _vm._s(_vm.success) +
-                          "\n                    "
-                      )
-                    ]
-                  )
-                : _vm._e(),
-              _vm._v(" "),
-              _c(
-                "form",
-                {
-                  attrs: { enctype: "multipart/form-data" },
-                  on: { submit: _vm.formSubmit }
-                },
-                [
-                  _c("strong", [_vm._v("File:")]),
-                  _vm._v(" "),
-                  _c("input", {
-                    staticClass: "form-control",
-                    attrs: { type: "file" },
-                    on: { change: _vm.onFileChange }
-                  }),
-                  _vm._v(" "),
-                  _c("button", { staticClass: "btn btn-success" }, [
-                    _vm._v("Submit")
-                  ])
-                ]
-              )
-            ]),
+            _c("input", {
+              staticClass: "form-control",
+              attrs: { type: "file" },
+              on: { change: _vm.onFileChange }
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "card-footer" })
-          ])
-        ])
-      ])
-    ]
-  )
+            _c("button", { staticClass: "btn btn-success" }, [_vm._v("Submit")])
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "card-footer" })
+    ])
+  ])
 }
 var staticRenderFns = [
   function() {
@@ -39277,7 +39275,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _vm._v("\n                    Upload CSV file to update data. "),
+      _vm._v("\n            Upload CSV file to update data. "),
       _c("b", [_vm._v("This may take a few minutes.")])
     ])
   }

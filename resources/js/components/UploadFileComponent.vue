@@ -1,26 +1,22 @@
 <template>
-    <div class="container" style="margin: 10px auto">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">
-                        Upload CSV file to update data. <b>This may take a few minutes.</b>
-                    </div>
-
-                    <div class="card-body">
-                        <div v-if="success != ''" class="alert alert-success" role="alert">
-                            {{success}}
-                        </div>
-                        <form @submit="formSubmit" enctype="multipart/form-data">
-                            <strong>File:</strong>
-                            <input type="file" class="form-control" v-on:change="onFileChange">
-
-                            <button class="btn btn-success">Submit</button>
-                        </form>
-                    </div>
-                    <div class="card-footer"></div>
-                </div>
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                Upload CSV file to update data. <b>This may take a few minutes.</b>
             </div>
+
+            <div class="card-body">
+                <div v-if="success != ''" class="alert alert-success" role="alert">
+                    {{success}}
+                </div>
+                <form @submit="formSubmit" enctype="multipart/form-data">
+                    <strong>File:</strong>
+                    <input type="file" class="form-control" v-on:change="onFileChange">
+
+                    <button class="btn btn-success">Submit</button>
+                </form>
+            </div>
+            <div class="card-footer"></div>
         </div>
     </div>
 </template>

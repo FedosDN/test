@@ -1,10 +1,15 @@
 <template>
-    <div>
+    <div class="container">
         <notifications position="top center" group="notifications" />
 
-        <file></file>
+        <div class="row">
+            <file></file>
 
-        <search :phrase.sync="phrase"></search>
+            <search :phrase.sync="phrase"></search>
+        </div>
+        <div class="row" style="margin: 10px auto">
+            <a class="btn btn-info" href="/docs">Documentation</a>
+        </div>
 
         <div class="row">
             <table class="table table-bordered">
@@ -73,7 +78,7 @@
                         }).catch(error => {
                             this.$notify({
                                 group: 'notifications',
-                                title: 'Error',
+                                title: 'Notice',
                                 type: 'warn',
                                 text: error.response.data.errors.phrase[0]
                             });
