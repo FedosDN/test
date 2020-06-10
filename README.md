@@ -1,6 +1,6 @@
 
 
-## Laravel Based Application
+## Wezom Test exercise 
 
 ## Bootstrap App
 * run `composer run-script bootstrap --timeout 0` to resolve all dependencies
